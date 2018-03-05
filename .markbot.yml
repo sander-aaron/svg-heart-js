@@ -1,0 +1,49 @@
+repo: 'svg-heart-js'
+
+inherit:
+  - naming-restrict-live
+  - git-2
+  - html
+  - css
+  - js
+  - modulifier
+  - css-order-modules-main
+
+html:
+  - path: 'index.html'
+    outline: false
+    has:
+      - 'svg'
+      - 'script[src*="jquery"]'
+      - 'script[src*="main"]'
+
+css:
+  - path: 'css/main.css'
+
+js:
+  - path: 'js/main.js'
+
+screenshots:
+  - path: 'index.html'
+    label: 'Before'
+    sizes: [960]
+  - path: 'index.html'
+    label: 'Left'
+    sizes: [960]
+    before: |
+      on($('#egg-big'), 'transitionend', done);
+
+      send('mouseMove', {
+        x: 10,
+        y: 10,
+      });
+  - path: 'index.html'
+    label: 'Right'
+    sizes: [960]
+    before: |
+      on($('#egg-big'), 'transitionend', done);
+
+      send('mouseMove', {
+        x: document.documentElement.clientWidth - 10,
+        y: 10,
+      });
